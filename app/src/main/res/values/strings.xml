@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Tubewell Info Collection</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- Strings related to Tubewell Info Collection -->
+    <string name="owner_name"> Owner Name</string>
+    <string name="owner_type">Owner Type</string>
+    <string name="purpose">Purpose of Use </string>
+    <string name="no_of_user">No. Of User</string>
+    <string name="tubewell"> Type of Tubewell</string>
+    <string name="abstraction_type"> Mood of Water Abstraction</string>
+    <string name="installation_date">Installation Date</string>
+
+    <string-array name="owner_type">
+        <item> Government</item>
+        <item> NGO</item>
+        <item> Private</item>
+    </string-array>
+    <string-array name="purpose_of_use">
+        <item> Drinking Water</item>
+        <item> Domestic</item>
+        <item> Agriculture</item>
+        <item> Industrial</item>
+    </string-array>
+
+    <string-array name="tubewell_type">
+        <item> Shallow Tubewell</item>
+        <item> Deep Tubewell</item>
+        <item> Deep-set Shallow Tubewell</item>
+        <item> Hand Tubewell</item>
+        <item> Deep Hand Tubewell</item>
+    </string-array>
+
+    <string-array name="mood_of_abstraction">
+        <item> Suction Mood</item>
+        <item> Force Mood</item>
+    </string-array>
+
+</resources>
