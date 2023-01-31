@@ -10,7 +10,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <!-- Strings related to Tubewell Info Collection -->
+
     <string name="owner_name"> Owner Name</string>
     <string name="owner_type">Owner Type</string>
     <string name="purpose">Purpose of Use </string>
