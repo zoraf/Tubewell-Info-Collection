@@ -11,37 +11,47 @@
     <string name="login_failed">"Login failed"</string>
 
 
-    <string name="owner_name"> Owner Name</string>
-    <string name="owner_type">Owner Type</string>
-    <string name="purpose">Purpose of Use </string>
-    <string name="no_of_user">No. Of User</string>
-    <string name="tubewell"> Type of Tubewell</string>
-    <string name="abstraction_type"> Mood of Water Abstraction</string>
-    <string name="installation_date">Installation Date</string>
+    <string name="owner_name"> মালিকের নাম</string>
+    <string name="owner_type">মালিকের ধরন</string>
+    <string name="purpose"> ব্যবহারের উদ্দেশ্য </string>
+    <string name="no_of_user"> ব্যবহারকারীর সংখ্যা </string>
+    <string name="tubewell"> নলকূপের প্রকারভেদ </string>
+    <string name="abstraction_type"> পানি উত্তোলনের পদ্ধতি</string>
+    <string name="installation_date">ইনস্টলেশনের তারিখ</string>
+    <string name="approximate_amount_of_water_usage">পানি ব্যবহারের আনুমানিক পরিমাণ </string>
 
-    <string-array name="owner_type">
-        <item> Government</item>
-        <item> NGO</item>
-        <item> Private</item>
+    <string-array name="owner_type_array">
+        <item> সরকারী </item>
+        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>
+        <item> প্রাইভেট প্রতিষ্ঠান </item>
+        <item> ব্যাক্তিগত </item>
     </string-array>
-    <string-array name="purpose_of_use">
-        <item> Drinking Water</item>
-        <item> Domestic</item>
-        <item> Agriculture</item>
-        <item> Industrial</item>
+    <string-array name="purpose_of_use_array">
+        <item> খাবার পানি </item>
+        <item> গৃহস্থালী কাজ </item>
+        <item> কৃষি কাজ </item>
+        <item> মৎস্য চাষ </item>
+        <item> পরিবেশের ভারসাম্য </item>
+        <item> বন্য প্রানী </item>
+        <item> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </item>
+        <item> শিল্প খাত </item>
+        <item> লবনাক্ত নিয়ন্ত্রণ </item>
+        <item> বিদ্যুৎ উৎপাদন </item>
+        <item> বিনোদন </item>
+        <item>অন্যান্য </item>
     </string-array>
 
-    <string-array name="tubewell_type">
-        <item> Shallow Tubewell</item>
-        <item> Deep Tubewell</item>
-        <item> Deep-set Shallow Tubewell</item>
-        <item> Hand Tubewell</item>
-        <item> Deep Hand Tubewell</item>
+    <string-array name="tubewell_type_array">
+        <item> অগভীর নলকূপ </item>
+        <item> গভীর নলকূপ </item>
+        <item> ডিপসেট অগভীর নলকূপ</item>
+        <item> হস্তচালিত নলকূপ</item>
+        <item> হস্তচালিত গভীর নলকূপ </item>
     </string-array>
 
-    <string-array name="mood_of_abstraction">
-        <item> Suction Mood</item>
-        <item> Force Mood</item>
+    <string-array name="mood_of_abstraction_array">
+        <item> সাকশন পদ্ধতি</item>
+        <item> ফোর্সমোড পদ্ধতি</item>
     </string-array>
 
 </resources>
