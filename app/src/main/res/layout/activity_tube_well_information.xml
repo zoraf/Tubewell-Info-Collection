@@ -13,14 +13,21 @@
     android:orientation="vertical"
     tools:context=".TubeWellInformation">
 
+
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etOwnerName"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:errorEnabled="true"
         android:hint="@string/owner_name"
         app:hintTextColor="@color/purple_700"
         app:boxBackgroundColor="@color/material_dynamic_neutral95">
 
         <com.google.android.material.textfield.TextInputEditText
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/nikosh">
@@ -28,67 +35,114 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvOwnerType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
 
-    <!--    <com.google.android.material.card.MaterialCardView-->
-    <!--        android:id="@+id/cardView"-->
-    <!--        android:layout_width="352dp"-->
-    <!--        android:layout_height="69dp"-->
-    <!--        android:layout_marginTop="50dp"-->
-    <!--        android:layout_marginBottom="5dp"-->
-    <!--        app:cardCornerRadius="10dp"-->
-    <!--        app:cardElevation="0dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0"-->
-    <!--        app:strokeColor="@color/incharge_blue"-->
-    <!--        app:strokeWidth="1dp">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:weightSum="1"
+                android:orientation="horizontal">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.9"
+                    android:padding="8dp"
+                    android:text="@string/owner_type"
+                    android:fontFamily="@font/nikosh"/>
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent">-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivOwnerTypeDropDown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:padding="8dp"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    app:tint="@color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ownerTypeCollapsibleContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="1dp">
 
-    <!--        </LinearLayout>-->
+                <LinearLayout
+                    android:id="@+id/ownerTypeCheckBoxContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    <!--    </com.google.android.material.card.MaterialCardView>-->
+                    <RadioGroup
+                        android:id="@+id/rgOwnerType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbOwnerType1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/owner_type_1" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:dividerColor="@color/material_dynamic_neutral0"
+                            app:dividerThickness="1dp"/>
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbOwnerType2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/owner_type_2" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:dividerColor="@color/material_dynamic_neutral0"
+                            app:dividerThickness="1dp"/>
 
 
-    <!--    <com.google.android.material.card.MaterialCardView-->
-    <!--        android:id="@+id/cardView2"-->
-    <!--        android:layout_width="331dp"-->
-    <!--        android:layout_height="81dp"-->
-    <!--        android:layout_marginTop="32dp"-->
-    <!--        app:cardCornerRadius="10dp"-->
-    <!--        app:cardElevation="0dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/cardView"-->
-    <!--        app:strokeColor="@color/incharge_blue"-->
-    <!--        app:strokeWidth="1dp">-->
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbOwnerType3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/owner_type_3" />
 
-    <!--    </com.google.android.material.card.MaterialCardView>-->
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:dividerColor="@color/material_dynamic_neutral0"
+                            app:dividerThickness="1dp"/>
 
-    <!--    <com.google.android.material.card.MaterialCardView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="100dp"-->
-    <!--        android:layout_marginTop="30dp"-->
-    <!--        app:cardCornerRadius="10dp"-->
-    <!--        app:cardElevation="0dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/cardView2"-->
-    <!--        app:strokeColor="@color/incharge_blue"-->
-    <!--        app:strokeWidth="1dp">-->
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbOwnerType4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/owner_type_4" />
+                    </RadioGroup>
 
-    <!--        <com.google.android.material.textfield.TextInputEditText-->
-    <!--            android:id="@+id/owner_name"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:fontFamily="@font/nikosh"-->
-    <!--            android:hint="@string/owner_name" />-->
-    <!--    </com.google.android.material.card.MaterialCardView>-->
 
+                </LinearLayout>
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/ownerTypeCardGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="ownerTypeCollapsibleContent"
+                    tools:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

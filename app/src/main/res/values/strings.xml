@@ -20,12 +20,16 @@
     <string name="installation_date">ইনস্টলেশনের তারিখ</string>
     <string name="approximate_amount_of_water_usage">পানি ব্যবহারের আনুমানিক পরিমাণ </string>
 
-    <string-array name="owner_type_array">
-        <item> সরকারী </item>
-        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>
-        <item> প্রাইভেট প্রতিষ্ঠান </item>
-        <item> ব্যাক্তিগত </item>
-    </string-array>
+    <string name="owner_type_1">সরকারী</string>
+    <string name="owner_type_2">আধাসরকারী/ স্বায়ত্তশাসিত</string>
+    <string name="owner_type_3">প্রাইভেট প্রতিষ্ঠান</string>
+    <string name="owner_type_4">ব্যাক্তিগত</string>
+<!--    <string-array name="owner_type_array">-->
+<!--        <item> সরকারী </item>-->
+<!--        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>-->
+<!--        <item> প্রাইভেট প্রতিষ্ঠান </item>-->
+<!--        <item> ব্যাক্তিগত </item>-->
+<!--    </string-array>-->
     <string-array name="purpose_of_use_array">
         <item> খাবার পানি </item>
         <item> গৃহস্থালী কাজ </item>
