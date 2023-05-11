@@ -12,50 +12,83 @@
 
 
     <string name="owner_name"> মালিকের নাম</string>
-    <string name="owner_type">মালিকের ধরন</string>
-    <string name="purpose"> ব্যবহারের উদ্দেশ্য </string>
-    <string name="no_of_user"> ব্যবহারকারীর সংখ্যা </string>
-    <string name="tubewell"> নলকূপের প্রকারভেদ </string>
-    <string name="abstraction_type"> পানি উত্তোলনের পদ্ধতি</string>
-    <string name="installation_date">ইনস্টলেশনের তারিখ</string>
-    <string name="approximate_amount_of_water_usage">পানি ব্যবহারের আনুমানিক পরিমাণ </string>
 
+    <string name="owner_type">মালিকানার ধরন </string>
     <string name="owner_type_1">সরকারী</string>
     <string name="owner_type_2">আধাসরকারী/ স্বায়ত্তশাসিত</string>
     <string name="owner_type_3">প্রাইভেট প্রতিষ্ঠান</string>
     <string name="owner_type_4">ব্যাক্তিগত</string>
+
+    <string name="purpose"> ব্যবহারের উদ্দেশ্য </string>
+    <string name="purpose_of_use_1"> খাবার পানি </string>
+    <string name="purpose_of_use_2"> গৃহস্থালী কাজ </string>
+    <string name="purpose_of_use_3"> কৃষি কাজ </string>
+    <string name="purpose_of_use_4"> মৎস্য চাষ </string>
+    <string name="purpose_of_use_5"> পরিবেশের ভারসাম্য </string>
+    <string name="purpose_of_use_6"> বন্য প্রানী </string>
+    <string name="purpose_of_use_7"> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </string>
+    <string name="purpose_of_use_8"> শিল্প খাত </string>
+    <string name="purpose_of_use_9"> লবনাক্ত নিয়ন্ত্রণ </string>
+    <string name="purpose_of_use_10"> বিদ্যুৎ উৎপাদন </string>
+    <string name="purpose_of_use_11"> বিনোদন </string>
+    <string name="purpose_of_use_12"> শিল্প খাত </string>
+    <string name="purpose_of_use_13"> অন্যান্য </string>
+
+
+    <string name="no_of_user"> ব্যবহারকারীর সংখ্যা </string>
+
+
+    <string name="installation_date">ইনস্টলেশনের তারিখ</string>
+    <string name="approximate_amount_of_water_usage">পানি ব্যবহারের আনুমানিক পরিমাণ </string>
+
+
 <!--    <string-array name="owner_type_array">-->
 <!--        <item> সরকারী </item>-->
 <!--        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>-->
 <!--        <item> প্রাইভেট প্রতিষ্ঠান </item>-->
 <!--        <item> ব্যাক্তিগত </item>-->
 <!--    </string-array>-->
-    <string-array name="purpose_of_use_array">
-        <item> খাবার পানি </item>
-        <item> গৃহস্থালী কাজ </item>
-        <item> কৃষি কাজ </item>
-        <item> মৎস্য চাষ </item>
-        <item> পরিবেশের ভারসাম্য </item>
-        <item> বন্য প্রানী </item>
-        <item> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </item>
-        <item> শিল্প খাত </item>
-        <item> লবনাক্ত নিয়ন্ত্রণ </item>
-        <item> বিদ্যুৎ উৎপাদন </item>
-        <item> বিনোদন </item>
-        <item>অন্যান্য </item>
-    </string-array>
+<!--    <string-array name="purpose_of_use_array">-->
+<!--        <item> খাবার পানি </item>-->
+<!--        <item> গৃহস্থালী কাজ </item>-->
+<!--        <item> কৃষি কাজ </item>-->
+<!--        <item> মৎস্য চাষ </item>-->
+<!--        <item> পরিবেশের ভারসাম্য </item>-->
+<!--        <item> বন্য প্রানী </item>-->
+<!--        <item> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </item>-->
+<!--        <item> শিল্প খাত </item>-->
+<!--        <item> লবনাক্ত নিয়ন্ত্রণ </item>-->
+<!--        <item> বিদ্যুৎ উৎপাদন </item>-->
+<!--        <item> বিনোদন </item>-->
+<!--        <item>অন্যান্য </item>-->
+<!--    </string-array>-->
 
-    <string-array name="tubewell_type_array">
-        <item> অগভীর নলকূপ </item>
-        <item> গভীর নলকূপ </item>
-        <item> ডিপসেট অগভীর নলকূপ</item>
-        <item> হস্তচালিত নলকূপ</item>
-        <item> হস্তচালিত গভীর নলকূপ </item>
-    </string-array>
 
-    <string-array name="mood_of_abstraction_array">
-        <item> সাকশন পদ্ধতি</item>
-        <item> ফোর্সমোড পদ্ধতি</item>
-    </string-array>
+    <string name="tubewell"> নলকূপের প্রকারভেদ </string>
+    <string name="tubewell_type_1">অগভীর নলকূপ</string>
+    <string name="tubewell_type_2">গভীর নলকূপ</string>
+    <string name="tubewell_type_3">ডিপসেট অগভীর নলকূপ</string>
+    <string name="tubewell_type_4">হস্তচালিত নলকূপ</string>
+    <string name="tubewell_type_5">হস্তচালিত গভীর নলকূপ</string>
+
+<!--    <string-array name="tubewell_type_array">-->
+<!--        <item> অগভীর নলকূপ </item>-->
+<!--        <item> গভীর নলকূপ </item>-->
+<!--        <item> ডিপসেট অগভীর নলকূপ</item>-->
+<!--        <item> হস্তচালিত নলকূপ</item>-->
+<!--        <item> হস্তচালিত গভীর নলকূপ </item>-->
+<!--    </string-array>-->
+
+
+    <string name="abstraction_type"> পানি উত্তোলনের পদ্ধতি</string>
+    <string name="abstraction_type_1"> সাকশন পদ্ধতি</string>
+    <string name="abstraction_type_2"> ফোর্সমোড পদ্ধতি</string>
+
+    <string name="submit_button_text"> দাখিল করুণ </string>
+
+<!--    <string-array name="mood_of_abstraction_array">-->
+<!--        <item> সাকশন পদ্ধতি</item>-->
+<!--        <item> ফোর্সমোড পদ্ধতি</item>-->
+<!--    </string-array>-->
 
 </resources>
