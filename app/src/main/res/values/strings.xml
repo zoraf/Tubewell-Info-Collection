@@ -91,9 +91,12 @@
     <!--        <item> ফোর্সমোড পদ্ধতি</item>-->
     <!--    </string-array>-->
 
-    <string name="approval_unapproval"> অনুমোদন/ অনাপত্তিপত্র নেয়া হয়েছে কিনা??</string>
+    <string name="approval_unapproval"> অনাপত্তিপত্র/ অনুমোদন নেয়া হয়েছে কিনা??</string>
     <string name="yes"> হ্যা </string>
     <string name="no"> না </string>
-    <string name="approval_authority_name"> অনুমোদন/অনাপত্তিপত্র প্রদানকারী কর্তৃপক্ষের নাম </string>
+    <string name="approval_authority_name">  অনাপত্তিপত্র/ অনুমোদন প্রদানকারী কর্তৃপক্ষের নাম </string>
+    <string name="last_date_of_approval"> সর্বশেষ অনাপত্তিপত্র/ অনুমোদন গ্রহণের তারিখ </string>
+
+    <string name="length_of_pipe"> কত ফুট গভীর পাইপ ব্যবহার করা হয়েছে  </string>
 
 </resources>
