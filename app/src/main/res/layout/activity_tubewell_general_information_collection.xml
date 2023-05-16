@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".TubeWellInformation">
+    tools:context=".TubewellGeneralInformationCollectionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etOwnerName"
+            style="?attr/textInputOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginLeft="5dp"
@@ -27,13 +28,12 @@
             android:layout_marginRight="5dp"
             android:hint="@string/owner_name"
             android:textColor="@color/black"
-            style="?attr/textInputOutlinedStyle"
             app:boxBackgroundColor="?attr/colorSurface"
-            app:boxStrokeColor="@color/cadet_blue"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp">
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/cadet_blue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -60,7 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-
                 android:layout_marginRight="5dp"
                 android:orientation="vertical">
 
@@ -77,8 +76,8 @@
                         android:layout_weight="0.9"
                         android:gravity="center|start"
                         android:padding="8dp"
-                        android:textColor="@color/black"
-                        android:text="@string/owner_type" />
+                        android:text="@string/owner_type"
+                        android:textColor="@color/black" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ivOwnerTypeDropDown"
@@ -120,28 +119,28 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/owner_type_1"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.radiobutton.MaterialRadioButton
                                 android:id="@+id/rbOwnerType2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/owner_type_2"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.radiobutton.MaterialRadioButton
                                 android:id="@+id/rbOwnerType3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/owner_type_3"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.radiobutton.MaterialRadioButton
                                 android:id="@+id/rbOwnerType4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/owner_type_4"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
                         </RadioGroup>
 
 
@@ -177,13 +176,138 @@
                     android:gravity="start|center"
                     android:text="@string/installation_date"
                     android:textColor="@color/black"
-                    app:cornerRadius="15dp"/>
+                    app:cornerRadius="15dp" />
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvIsApproved"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:padding="5dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:strokeColor="@color/cadet_blue"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:id="@+id/llIsApproved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center|start"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.9"
+                        android:gravity="center|start"
+                        android:padding="8dp"
+                        android:text="@string/approval_unapproval"
+                        android:textColor="@color/black" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivIsApprovedDropDown"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:padding="8dp"
+                        app:srcCompat="@android:drawable/arrow_down_float"
+                        app:tint="@color/black" />
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dividerColor="@color/material_dynamic_neutral0"
+                    app:dividerThickness="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/isApprovedTypeCollapsibleContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/isApprovedTypeCheckBoxContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:id="@+id/rgIsApprovedType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/rbIsApprovedType1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/yes"
+                                android:textColor="@color/black" />
+
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/rbIsApprovedType2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/no"
+                                android:textColor="@color/black" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/llApprovalAuthorityName"
+                    android:layout_marginTop="1dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etApprovalAuthorityName"
+                        style="?attr/textInputOutlinedStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:hint="@string/approval_authority_name"
+                        android:textColor="@color/black"
+                        app:boxBackgroundColor="?attr/colorSurface"
+                        app:boxCornerRadiusBottomEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp"
+                        app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusTopStart="10dp"
+                        app:boxStrokeColor="@color/cadet_blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etNoOfUser"
+            style="?attr/textInputOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginLeft="5dp"
@@ -191,13 +315,12 @@
             android:layout_marginRight="5dp"
             android:hint="@string/no_of_user"
             android:textColor="@color/black"
-            style="?attr/textInputOutlinedStyle"
             app:boxBackgroundColor="?attr/colorSurface"
-            app:boxStrokeColor="@color/cadet_blue"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp">
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/cadet_blue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -238,7 +361,7 @@
                         android:gravity="start|center"
                         android:padding="8dp"
                         android:text="@string/purpose"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ivPurposeOfUseDropDown"
@@ -283,7 +406,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_1"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse2"
@@ -291,7 +414,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_2"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse3"
@@ -299,7 +422,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_3"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -314,7 +437,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_4"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse5"
@@ -322,7 +445,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_5"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse6"
@@ -330,7 +453,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_6"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -345,7 +468,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:text="@string/purpose_of_use_7"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse8"
@@ -353,7 +476,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_8"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse9"
@@ -361,15 +484,15 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="@string/purpose_of_use_9"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="3"
-                            android:textColor="@color/black">
+                            android:textColor="@color/black"
+                            android:weightSum="3">
 
                             <com.google.android.material.checkbox.MaterialCheckBox
                                 android:id="@+id/cbPurposeOfUse10"
@@ -415,6 +538,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etWaterUsage"
+            style="?attr/textInputOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginLeft="5dp"
@@ -422,13 +546,12 @@
             android:layout_marginRight="5dp"
             android:hint="@string/approximate_amount_of_water_usage"
             android:textColor="@color/black"
-            style="?attr/textInputOutlinedStyle"
             app:boxBackgroundColor="?attr/colorSurface"
-            app:boxStrokeColor="@color/cadet_blue"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp">
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/cadet_blue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -472,7 +595,7 @@
                         android:gravity="center|start"
                         android:padding="8dp"
                         android:text="@string/tubewell"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ivTubewellTypeDropDown"
@@ -584,7 +707,7 @@
                         android:gravity="center|start"
                         android:padding="8dp"
                         android:text="@string/abstraction_type"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ivAbstractionTypeDropDown"
@@ -645,18 +768,19 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="5dp"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmit"
+                style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/submit_button_text"
-                style="@style/Widget.Material3.Button.ElevatedButton"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="15dp"
                 app:strokeColor="@color/cadet_blue"
-                app:strokeWidth="2dp"/>
+                app:strokeWidth="2dp" />
 
         </LinearLayout>
     </LinearLayout>

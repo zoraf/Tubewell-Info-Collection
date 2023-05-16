@@ -11,13 +11,13 @@
     <string name="login_failed">"Login failed"</string>
 
 
-    <string name="owner_name"> মালিকের নাম</string>
+    <string name="owner_name"> প্রতিষ্ঠান/ মালিকের নাম</string>
 
     <string name="owner_type">মালিকানার ধরন </string>
     <string name="owner_type_1">সরকারী</string>
     <string name="owner_type_2">আধাসরকারী/ স্বায়ত্তশাসিত</string>
     <string name="owner_type_3">প্রাইভেট প্রতিষ্ঠান</string>
-    <string name="owner_type_4">ব্যাক্তিগত</string>
+    <string name="owner_type_4">ব্যক্তিগত</string>
 
     <string name="purpose"> ব্যবহারের উদ্দেশ্য </string>
     <string name="purpose_of_use_1"> খাবার পানি </string>
@@ -42,53 +42,58 @@
     <string name="approximate_amount_of_water_usage">পানি ব্যবহারের আনুমানিক পরিমাণ </string>
 
 
-<!--    <string-array name="owner_type_array">-->
-<!--        <item> সরকারী </item>-->
-<!--        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>-->
-<!--        <item> প্রাইভেট প্রতিষ্ঠান </item>-->
-<!--        <item> ব্যাক্তিগত </item>-->
-<!--    </string-array>-->
-<!--    <string-array name="purpose_of_use_array">-->
-<!--        <item> খাবার পানি </item>-->
-<!--        <item> গৃহস্থালী কাজ </item>-->
-<!--        <item> কৃষি কাজ </item>-->
-<!--        <item> মৎস্য চাষ </item>-->
-<!--        <item> পরিবেশের ভারসাম্য </item>-->
-<!--        <item> বন্য প্রানী </item>-->
-<!--        <item> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </item>-->
-<!--        <item> শিল্প খাত </item>-->
-<!--        <item> লবনাক্ত নিয়ন্ত্রণ </item>-->
-<!--        <item> বিদ্যুৎ উৎপাদন </item>-->
-<!--        <item> বিনোদন </item>-->
-<!--        <item>অন্যান্য </item>-->
-<!--    </string-array>-->
+    <!--    <string-array name="owner_type_array">-->
+    <!--        <item> সরকারী </item>-->
+    <!--        <item> আধাসরকারী/ স্বায়ত্তশাসিত </item>-->
+    <!--        <item> প্রাইভেট প্রতিষ্ঠান </item>-->
+    <!--        <item> ব্যাক্তিগত </item>-->
+    <!--    </string-array>-->
+    <!--    <string-array name="purpose_of_use_array">-->
+    <!--        <item> খাবার পানি </item>-->
+    <!--        <item> গৃহস্থালী কাজ </item>-->
+    <!--        <item> কৃষি কাজ </item>-->
+    <!--        <item> মৎস্য চাষ </item>-->
+    <!--        <item> পরিবেশের ভারসাম্য </item>-->
+    <!--        <item> বন্য প্রানী </item>-->
+    <!--        <item> নদীতে পানি প্রবাহ অক্ষুণ্ণ রাখা </item>-->
+    <!--        <item> শিল্প খাত </item>-->
+    <!--        <item> লবনাক্ত নিয়ন্ত্রণ </item>-->
+    <!--        <item> বিদ্যুৎ উৎপাদন </item>-->
+    <!--        <item> বিনোদন </item>-->
+    <!--        <item>অন্যান্য </item>-->
+    <!--    </string-array>-->
 
 
-    <string name="tubewell"> নলকূপের প্রকারভেদ </string>
+    <string name="tubewell"> নলকূপের ধরণ </string>
     <string name="tubewell_type_1">অগভীর নলকূপ</string>
     <string name="tubewell_type_2">গভীর নলকূপ</string>
     <string name="tubewell_type_3">ডিপসেট অগভীর নলকূপ</string>
     <string name="tubewell_type_4">হস্তচালিত নলকূপ</string>
     <string name="tubewell_type_5">হস্তচালিত গভীর নলকূপ</string>
 
-<!--    <string-array name="tubewell_type_array">-->
-<!--        <item> অগভীর নলকূপ </item>-->
-<!--        <item> গভীর নলকূপ </item>-->
-<!--        <item> ডিপসেট অগভীর নলকূপ</item>-->
-<!--        <item> হস্তচালিত নলকূপ</item>-->
-<!--        <item> হস্তচালিত গভীর নলকূপ </item>-->
-<!--    </string-array>-->
+    <!--    <string-array name="tubewell_type_array">-->
+    <!--        <item> অগভীর নলকূপ </item>-->
+    <!--        <item> গভীর নলকূপ </item>-->
+    <!--        <item> ডিপসেট অগভীর নলকূপ</item>-->
+    <!--        <item> হস্তচালিত নলকূপ</item>-->
+    <!--        <item> হস্তচালিত গভীর নলকূপ </item>-->
+    <!--    </string-array>-->
 
 
-    <string name="abstraction_type"> পানি উত্তোলনের পদ্ধতি</string>
+    <string name="abstraction_type"> পানি উত্তোলন পদ্ধতি</string>
     <string name="abstraction_type_1"> সাকশন পদ্ধতি</string>
     <string name="abstraction_type_2"> ফোর্সমোড পদ্ধতি</string>
 
     <string name="submit_button_text"> দাখিল করুণ </string>
 
-<!--    <string-array name="mood_of_abstraction_array">-->
-<!--        <item> সাকশন পদ্ধতি</item>-->
-<!--        <item> ফোর্সমোড পদ্ধতি</item>-->
-<!--    </string-array>-->
+    <!--    <string-array name="mood_of_abstraction_array">-->
+    <!--        <item> সাকশন পদ্ধতি</item>-->
+    <!--        <item> ফোর্সমোড পদ্ধতি</item>-->
+    <!--    </string-array>-->
+
+    <string name="approval_unapproval"> অনুমোদন/ অনাপত্তিপত্র নেয়া হয়েছে কিনা??</string>
+    <string name="yes"> হ্যা </string>
+    <string name="no"> না </string>
+    <string name="approval_authority_name"> অনুমোদন/অনাপত্তিপত্র প্রদানকারী কর্তৃপক্ষের নাম </string>
 
 </resources>
