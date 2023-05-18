@@ -14,7 +14,7 @@ import java.util.Locale;
 
 public class BengaliDatePickerDialog extends DatePickerDialog {
 
-    private Locale bnLocale;
+    private final Locale bnLocale;
     public BengaliDatePickerDialog(@NonNull Context context, @Nullable OnDateSetListener listener, int year, int month, int dayOfMonth) {
         super(context, listener, year, month, dayOfMonth);
 

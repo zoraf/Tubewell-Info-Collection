@@ -1,6 +1,12 @@
 package com.example.tubewellinfocollection;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,21 +16,34 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
+import com.example.tubewellinfocollection.util.ConvertToBengali;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class TubewellGeneralInformationCollectionActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
+    public static String TAG = "TubewellGeneralInformationCollectionActivity";
+    public static int REQUEST_CODE = 1;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
     private TextInputLayout etOwnerName;
     private RadioGroup rgOwnerType, rgIsApprovedType, rgTubewellType, rgAbstractionType;
     private RadioButton rbIsApprovedType1, rbIsApprovedType2;
@@ -34,17 +53,72 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
 
     private ShapeableImageView ivOwnerTypeDropDown, ivPurposeOfUseDropDown, ivTubewellTypeDropDown, ivAbstractionTypeDropDown, ivIsApprovedDropDown;
 
-    private Button btnInstallationDatePicker, btnSubmit;
-    private LocalDate installationDate;
+    private Button btnInstallationDatePicker, btnSubmit, btnLastDateOfClearanceDatePicker;
+    private LocalDate installationDate, lastDateOfClearance;
+
+    private TextView tvInstallationDate, tvLastApprovalDate;
+
+    private String title, bengaliDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tubewell_general_information_collection);
+        getPermission();
         init();
     }
 
+    private void getPermission() {
+        List<String> permissionsList = new ArrayList<>();
+        permissionsList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        permissionsList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+
+        List<String> permissionsToRequest = new ArrayList<>();
+
+        for (String permission : permissionsList) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                permissionsToRequest.add(permission);
+            }
+        }
+
+        if (!permissionsToRequest.isEmpty()) {
+            ActivityCompat.requestPermissions(this, permissionsToRequest.toArray(new String[0]), REQUEST_CODE);
+        }
+    }
+
     private void init() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        }
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                String locationToast = "Latitude:: " + location.getLatitude() + "Longitude::" + location.getLongitude();
+                Log.d("debug", "onLocationChanged: " + locationToast);
+                Toast.makeText(getApplicationContext(), locationToast, Toast.LENGTH_LONG).show();
+                locationManager.removeUpdates(locationListener);
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+            }
+        };
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        title = getResources().getString(R.string.title);
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setIcon(R.drawable.baseline_water_drop_24);
+
         etOwnerName = findViewById(R.id.etOwnerName);
 
         btnSubmit = findViewById(R.id.btnSubmit);
@@ -96,13 +170,22 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
         rgAbstractionType = findViewById(R.id.rgAbstractionType);
         rgAbstractionType.setOnCheckedChangeListener(this);
 
+        tvInstallationDate = findViewById(R.id.tvInstallationDate);
+        tvLastApprovalDate = findViewById(R.id.tvLastApprovalDate);
+
+        btnLastDateOfClearanceDatePicker = findViewById(R.id.btnLastDateOfClearanceDatePicker);
+        btnLastDateOfClearanceDatePicker.setOnClickListener(this);
+
+
     }
 
-    private void showDatePickerDialog() {
+    private void showDatePickerDialog(View view) {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        View btnView = view;
 
         BengaliDatePickerDialog datePickerDialog = new BengaliDatePickerDialog(
                 this,
@@ -110,10 +193,22 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // Handle the selected date
+                        bengaliDate = ConvertToBengali.convertToBengali(dayOfMonth) + "-" + ConvertToBengali.convertToBengali(month) + "-" + ConvertToBengali.convertToBengali(year);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            installationDate = LocalDate.of(year, month, dayOfMonth);
+                            if (btnView.getId() == R.id.btnInstallationDatePicker) {
+                                installationDate = LocalDate.of(year, month, dayOfMonth);
+
+                                tvInstallationDate.setText(bengaliDate);
+                                Log.d("Date", String.valueOf(installationDate));
+                            } else if (btnView.getId() == R.id.btnLastDateOfClearanceDatePicker) {
+                                Log.d("ClearanceDatePicker", "onDateSet: ");
+                                lastDateOfClearance = LocalDate.of(year, month, dayOfMonth);
+                                tvLastApprovalDate.setText(bengaliDate);
+                                Log.d("Date", String.valueOf(lastDateOfClearance));
+                            }
+
                         }
-                        Log.d("Date", String.valueOf(installationDate));
+
                     }
                 },
                 year,
@@ -193,19 +288,24 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
                 ivIsApprovedDropDown.setImageResource(android.R.drawable.arrow_up_float);
 
             }
-
-//        } else if (view.getId() == rbIsApprovedType1.getId()) {
-//            Log.d("rb", "onClick: ");
-//            llApprovalAuthorityName.setVisibility(View.VISIBLE);
-//        } else if (view.getId() == rbIsApprovedType2.getId()) {
-//            llApprovalAuthorityName.setVisibility(View.GONE);
         } else if (view.getId() == btnInstallationDatePicker.getId()) {
-            showDatePickerDialog();
+            showDatePickerDialog(view);
+        } else if (view.getId() == btnLastDateOfClearanceDatePicker.getId()) {
+            showDatePickerDialog(view);
         } else if (view.getId() == btnSubmit.getId()) {
-
             TubewellInformation information = new TubewellInformation();
-//            information.setOwnerName(etOwnerName.getT);
-
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            Log.d(TAG, "onClick: " + "button is clicked");
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         }
     }
 

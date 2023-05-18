@@ -98,5 +98,7 @@
     <string name="last_date_of_approval"> সর্বশেষ অনাপত্তিপত্র/ অনুমোদন গ্রহণের তারিখ </string>
 
     <string name="length_of_pipe"> কত ফুট গভীর পাইপ ব্যবহার করা হয়েছে  </string>
+    <string name="title"> নলকূপের তথ্য </string>
+
 
 </resources>
