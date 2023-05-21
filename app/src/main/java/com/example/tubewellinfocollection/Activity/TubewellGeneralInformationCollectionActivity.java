@@ -1,4 +1,4 @@
-package com.example.tubewellinfocollection;
+package com.example.tubewellinfocollection.Activity;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -22,12 +22,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.Group;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
+import com.example.tubewellinfocollection.BengaliDatePickerDialog;
+import com.example.tubewellinfocollection.POJO.TubewellInformation;
+import com.example.tubewellinfocollection.R;
 import com.example.tubewellinfocollection.util.ConvertToBengali;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -113,11 +115,11 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
             }
         };
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        title = getResources().getString(R.string.title);
-        getSupportActionBar().setTitle(title);
-        getSupportActionBar().setIcon(R.drawable.baseline_water_drop_24);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        title = getResources().getString(R.string.title);
+//        getSupportActionBar().setTitle(title);
+//        getSupportActionBar().setIcon(R.drawable.baseline_water_drop_24);
 
         etOwnerName = findViewById(R.id.etOwnerName);
 

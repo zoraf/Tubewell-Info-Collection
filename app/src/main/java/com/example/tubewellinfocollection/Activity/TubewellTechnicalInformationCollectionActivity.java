@@ -1,8 +1,10 @@
-package com.example.tubewellinfocollection;
+package com.example.tubewellinfocollection.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.tubewellinfocollection.R;
 
 public class TubewellTechnicalInformationCollectionActivity extends AppCompatActivity {
 

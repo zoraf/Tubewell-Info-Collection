@@ -1,4 +1,4 @@
-package com.example.tubewellinfocollection;
+package com.example.tubewellinfocollection.POJO;
 
 import com.google.gson.annotations.SerializedName;
 
