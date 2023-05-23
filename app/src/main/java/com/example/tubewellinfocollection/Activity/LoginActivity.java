@@ -10,12 +10,16 @@ import android.widget.EditText;
 
 import com.example.tubewellinfocollection.POJO.LoginInformation;
 import com.example.tubewellinfocollection.R;
+import com.example.tubewellinfocollection.Service.ApiService;
+import com.example.tubewellinfocollection.Service.ApiUtils;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    EditText etUserEmail, etPassword;
-    Button btnLogin, btnRegistration;
+    private EditText etUserEmail, etPassword;
+    private Button btnLogin, btnRegistration;
+
+    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +37,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnRegistration = findViewById(R.id.btnRegistration);
         btnRegistration.setOnClickListener(this);
+
+        apiService = ApiUtils.getAPIService();
     }
 
     @Override
     public void onClick(View view) {
+
+        Intent intent;
         switch (view.getId()) {
             case R.id.btnLogin:
                 LoginInformation loginInformation = new LoginInformation();
                 loginInformation.setUserEmail(String.valueOf(etUserEmail.getText()));
                 loginInformation.setPassword(String.valueOf(etPassword.getText()));
+                intent = new Intent(LoginActivity.this,TubewellGeneralInformationCollectionActivity.class);
+                intent.putExtra("userName", loginInformation.getUserEmail());
+                startActivity(intent);
                 break;
             case R.id.btnRegistration:
-                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                intent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intent);
                 break;
         }

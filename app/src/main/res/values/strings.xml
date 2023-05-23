@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tubewell Info Collection</string>
 
+    <string name="after_registration_text"> আপনার নিবন্ধন তথ্য অনুমোদনের জন্য পাঠানো হয়েছে </string>
     <string name="action_bar"> পানি সম্পদ পরিকল্পনা সংস্থা </string>
     <!-- Strings related to login -->
     <string name="prompt_email"> ই-মেইল </string>

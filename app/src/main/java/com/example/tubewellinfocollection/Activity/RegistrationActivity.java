@@ -2,10 +2,12 @@ package com.example.tubewellinfocollection.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.tubewellinfocollection.POJO.UserInformation;
 import com.example.tubewellinfocollection.R;
@@ -34,6 +36,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()){
             case R.id.btnRegistration:
                 UserInformation userInformation = new UserInformation();
@@ -42,6 +45,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 userInformation.setMobileNumber(String.valueOf(etMobileNumber.getText()));
                 userInformation.setEmail(String.valueOf(etEmail.getText()));
                 userInformation.setPassword(String.valueOf(etPassword.getText()));
+
+                Toast.makeText(getApplicationContext(),R.string.after_registration_text,Toast.LENGTH_LONG).show();
+                intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
     }

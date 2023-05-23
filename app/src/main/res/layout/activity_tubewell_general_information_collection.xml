@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -319,7 +319,7 @@
                             android:id="@+id/etApprovalAuthorityName"
                             style="?attr/textInputOutlinedStyle"
                             android:layout_width="match_parent"
-                            android:layout_height="65dp"
+                            android:layout_height="70dp"
                             android:hint="@string/approval_authority_name"
                             android:textColor="@color/black"
                             app:boxBackgroundColor="?attr/colorSurface"
