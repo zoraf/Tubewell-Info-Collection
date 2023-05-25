@@ -2,17 +2,17 @@ package com.example.tubewellinfocollection.POJO;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RegistrationResponse {
+public class UserRegistrationResponse {
     @SerializedName("response")
     private String response;
 
     @SerializedName("responseCode")
     private int responseCode;
 
-    public RegistrationResponse() {
+    public UserRegistrationResponse() {
     }
 
-    public RegistrationResponse(String response, int responseCode) {
+    public UserRegistrationResponse(String response, int responseCode) {
         this.response = response;
         this.responseCode = responseCode;
     }
