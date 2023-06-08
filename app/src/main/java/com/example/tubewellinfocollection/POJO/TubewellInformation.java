@@ -42,9 +42,6 @@ public class TubewellInformation {
         purposeOfUse = new ArrayList<String>();
     }
 
-
-
-
     public String getOwnerName() {
         return ownerName;
     }

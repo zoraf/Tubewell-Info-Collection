@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tubewell Info Collection</string>
 
-    <string name="after_registration_text"> আপনার নিবন্ধন তথ্য অনুমোদনের জন্য পাঠানো হয়েছে </string>
+    <string name="registration_failed_text"> আপনার নিবন্ধন সম্পন্ন করা সম্ভব হয় নাই। পুনরায় চেষ্টা করুন </string>
     <string name="action_bar"> পানি সম্পদ পরিকল্পনা সংস্থা </string>
     <!-- Strings related to login -->
     <string name="prompt_email"> ই-মেইল </string>
@@ -18,7 +18,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-
+    <string name="msg_login_failed"> অনিবার্য কারনে লগইন করা সম্ভব হচ্ছে না </string>
 
     <string name="owner_name"> প্রতিষ্ঠান/ মালিকের নাম</string>
 

@@ -15,6 +15,7 @@ import com.example.tubewellinfocollection.POJO.UserRegistrationInformation;
 import com.example.tubewellinfocollection.R;
 import com.example.tubewellinfocollection.Service.ApiService;
 import com.example.tubewellinfocollection.Service.ApiUtils;
+import com.example.tubewellinfocollection.util.Constant;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,10 +50,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        Intent intent;
+        final Intent[] intent = new Intent[1];
         switch (view.getId()) {
             case R.id.btnRegistration:
-                try{
+                try {
                     UserRegistrationInformation userRegistrationInformation = new UserRegistrationInformation();
                     userRegistrationInformation.setUserName(String.valueOf(etUserName.getText()));
                     userRegistrationInformation.setOrganizationName(String.valueOf(etOrgnaizationName.getText()));
@@ -62,21 +63,28 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     apiService.registration(userRegistrationInformation).enqueue(new Callback<UserRegistrationResponse>() {
                         @Override
                         public void onResponse(Call<UserRegistrationResponse> call, Response<UserRegistrationResponse> response) {
-                            if (response.code() == 200){
+                            if (response.code() == 200) {
                                 UserRegistrationResponse userRegistrationResponse = response.body();
-                                Log.d(TAG, "onResponse: " + userRegistrationResponse.getResponse());
+                                if ((userRegistrationResponse.getResponseCode() == Constant.REGISTRATION_DONE_PREVIOUSLY) ||
+                                        (userRegistrationResponse.getResponseCode() == Constant.REGISTRATION_DONE_SUCCESSFULLY)) {
+                                    Toast.makeText(getApplicationContext(), userRegistrationResponse.getResponse(), Toast.LENGTH_LONG).show();
+                                    intent[0] = new Intent(RegistrationActivity.this, LoginActivity.class);
+                                    startActivity(intent[0]);
+                                }
                             }
                         }
 
                         @Override
                         public void onFailure(Call<UserRegistrationResponse> call, Throwable t) {
-
+                            Toast.makeText(getApplicationContext(), R.string.registration_failed_text, Toast.LENGTH_LONG).show();
+                            Intent intent1 = getIntent();
+                            finish();
+                            startActivity(intent1);
                         }
                     });
-                    Toast.makeText(getApplicationContext(), R.string.after_registration_text, Toast.LENGTH_LONG).show();
-                    intent = new Intent(RegistrationActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }catch (Exception e){
+
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
