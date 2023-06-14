@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 } else if (loginResponse.getResponseCode() == Constant.WRONG_PASSWORD) {
                                     Toast.makeText(getApplicationContext(), loginResponse.getResponse(), Toast.LENGTH_LONG).show();
                                 } else {
-                                    intent[0] = new Intent(LoginActivity.this, TubewellGeneralInformationCollectionActivity.class);
+                                    intent[0] = new Intent(LoginActivity.this, TubewellInformationCollectionActivity.class);
                                     intent[0].putExtra("userName", loginInformation.getUserEmail());
                                     startActivity(intent[0]);
                                 }

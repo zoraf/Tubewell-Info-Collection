@@ -8,38 +8,68 @@ import java.util.List;
 
 public class TubewellInformation {
 
-    @SerializedName("ownerName")
+    @SerializedName("owner_name")
     private String ownerName;
 
-    @SerializedName("ownerType")
+    @SerializedName("owner_type")
     private String ownerType;
 
-    @SerializedName("installationDate")
-    private Date installationDate;
+    @SerializedName("date_of_installation")
+    private String dateOfInstallation;
 
-    @SerializedName("isApproved")
-    private String isApproved;
+    @SerializedName("is_approval_taken")
+    private String isApprovalTaken;
 
-    @SerializedName("approvalAuthority")
+    @SerializedName("approval_authority")
     private String approvalAuthority;
 
-    @SerializedName("numberOfUser")
-    private String numberOfUser;
+    @SerializedName("last_approval_date")
+    private String lastApprovalDate;
 
-    @SerializedName("purposeOfUse")
-    private List<String> purposeOfUse;
+    @SerializedName("no_of_user")
+    private String noOfUser;
 
-    @SerializedName("volumeOfWaterUsage")
-    private String volumeOfWaterUsage;
+    @SerializedName("purpose_of_usage")
+    private List<String> purposeOfUsage = new ArrayList<String>();
 
-    @SerializedName("typeOfTubewell")
-    private String typeOfTubewell;
+    @SerializedName("amount_of_water_use")
+    private String amountOfWaterUse;
 
-    @SerializedName("abstractionType")
-    private String abstractionType;
+    @SerializedName("tubewell_type")
+    private String tubewellType;
+
+    @SerializedName("mode_of_abstraction")
+    private String modeOfAbstraction;
+
+    @SerializedName("length_of_pipe_used")
+    private String lengthOfPipeUsed;
+
+    @SerializedName("latitude")
+    private String latitude;
+
+    @SerializedName("longitude")
+    private String longitude;
 
     public TubewellInformation() {
-        purposeOfUse = new ArrayList<String>();
+        this.purposeOfUsage = new ArrayList<String>();
+    }
+
+    public TubewellInformation(String ownerName, String ownerType, String dateOfInstallation, String isApprovalTaken, String approvalAuthority, String lastApprovalDate, String noOfUser, List<String> purposeOfUsage, String amountOfWaterUse,
+                               String tubewellType, String modeOfAbstraction, String lengthOfPipeUsed, String latitude, String longitude) {
+        this.ownerName = ownerName;
+        this.ownerType = ownerType;
+        this.dateOfInstallation = dateOfInstallation;
+        this.isApprovalTaken = isApprovalTaken;
+        this.approvalAuthority = approvalAuthority;
+        this.lastApprovalDate = lastApprovalDate;
+        this.noOfUser = noOfUser;
+        this.purposeOfUsage = purposeOfUsage;
+        this.amountOfWaterUse = amountOfWaterUse;
+        this.tubewellType = tubewellType;
+        this.modeOfAbstraction = modeOfAbstraction;
+        this.lengthOfPipeUsed = lengthOfPipeUsed;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getOwnerName() {
@@ -58,20 +88,20 @@ public class TubewellInformation {
         this.ownerType = ownerType;
     }
 
-    public Date getInstallationDate() {
-        return installationDate;
+    public String getDateOfInstallation() {
+        return dateOfInstallation;
     }
 
-    public void setInstallationDate(Date installationDate) {
-        this.installationDate = installationDate;
+    public void setDateOfInstallation(String dateOfInstallation) {
+        this.dateOfInstallation = dateOfInstallation;
     }
 
-    public String getIsApproved() {
-        return isApproved;
+    public String getIsApprovalTaken() {
+        return isApprovalTaken;
     }
 
-    public void setIsApproved(String isApproved) {
-        this.isApproved = isApproved;
+    public void setIsApprovalTaken(String isApprovalTaken) {
+        this.isApprovalTaken = isApprovalTaken;
     }
 
     public String getApprovalAuthority() {
@@ -82,43 +112,75 @@ public class TubewellInformation {
         this.approvalAuthority = approvalAuthority;
     }
 
-    public String getNumberOfUser() {
-        return numberOfUser;
+    public String getLastApprovalDate() {
+        return lastApprovalDate;
     }
 
-    public void setNumberOfUser(String numberOfUser) {
-        this.numberOfUser = numberOfUser;
+    public void setLastApprovalDate(String lastApprovalDate) {
+        this.lastApprovalDate = lastApprovalDate;
     }
 
-    public List<String> getPurposeOfUse() {
-        return purposeOfUse;
+    public String getNoOfUser() {
+        return noOfUser;
     }
 
-    public void setPurposeOfUse(List<String> purposeOfUse) {
-        this.purposeOfUse = purposeOfUse;
+    public void setNoOfUser(String noOfUser) {
+        this.noOfUser = noOfUser;
     }
 
-    public String getVolumeOfWaterUsage() {
-        return volumeOfWaterUsage;
+    public List<String> getPurposeOfUsage() {
+        return purposeOfUsage;
     }
 
-    public void setVolumeOfWaterUsage(String volumeOfWaterUsage) {
-        this.volumeOfWaterUsage = volumeOfWaterUsage;
+    public void setPurposeOfUsage(List<String> purposeOfUsage) {
+        this.purposeOfUsage = purposeOfUsage;
     }
 
-    public String getTypeOfTubewell() {
-        return typeOfTubewell;
+    public String getAmountOfWaterUse() {
+        return amountOfWaterUse;
     }
 
-    public void setTypeOfTubewell(String typeOfTubewell) {
-        this.typeOfTubewell = typeOfTubewell;
+    public void setAmountOfWaterUse(String amountOfWaterUse) {
+        this.amountOfWaterUse = amountOfWaterUse;
     }
 
-    public String getAbstractionType() {
-        return abstractionType;
+    public String getTubewellType() {
+        return tubewellType;
     }
 
-    public void setAbstractionType(String abstractionType) {
-        this.abstractionType = abstractionType;
+    public void setTubewellType(String tubewellType) {
+        this.tubewellType = tubewellType;
+    }
+
+    public String getModeOfAbstraction() {
+        return modeOfAbstraction;
+    }
+
+    public void setModeOfAbstraction(String modeOfAbstraction) {
+        this.modeOfAbstraction = modeOfAbstraction;
+    }
+
+    public String getLengthOfPipeUsed() {
+        return lengthOfPipeUsed;
+    }
+
+    public void setLengthOfPipeUsed(String lengthOfPipeUsed) {
+        this.lengthOfPipeUsed = lengthOfPipeUsed;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

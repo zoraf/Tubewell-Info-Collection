@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.transition.AutoTransition;
@@ -40,9 +39,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class TubewellGeneralInformationCollectionActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class TubewellInformationCollectionActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
-    public static String TAG = "TubewellGeneralInformationCollectionActivity";
+    public static String TAG = "TubewellInformationCollectionActivity";
     public static int REQUEST_CODE = 1;
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -65,7 +64,7 @@ public class TubewellGeneralInformationCollectionActivity extends AppCompatActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tubewell_general_information_collection);
+        setContentView(R.layout.activity_tubewell_information_collection);
         getPermission();
         init();
     }

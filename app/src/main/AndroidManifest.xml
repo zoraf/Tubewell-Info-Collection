@@ -20,7 +20,7 @@
             android:name=".Activity.TubewellTechnicalInformationCollectionActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.TubewellGeneralInformationCollectionActivity"
+            android:name=".Activity.TubewellInformationCollectionActivity"
             android:exported="false">
 
         </activity>
