@@ -2,6 +2,8 @@ package com.example.tubewellinfocollection.Service;
 
 import com.example.tubewellinfocollection.POJO.LoginInformation;
 import com.example.tubewellinfocollection.POJO.LoginResponse;
+import com.example.tubewellinfocollection.POJO.TubewellInformation;
+import com.example.tubewellinfocollection.POJO.TubewellInformationSubmissionResponse;
 import com.example.tubewellinfocollection.POJO.UserRegistrationResponse;
 import com.example.tubewellinfocollection.POJO.UserRegistrationInformation;
 
@@ -18,6 +20,7 @@ public interface ApiService {
     Call<UserRegistrationResponse> registration(@Body UserRegistrationInformation userRegistrationInformation);
 
 
-
+    @POST("/tubewell_information")
+    Call<TubewellInformationSubmissionResponse> submitTubewellInformation(@Body TubewellInformation tubewellInformation);
 
 }

@@ -2,46 +2,47 @@ package com.example.tubewellinfocollection.POJO;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class TubewellInformation {
+public class TubewellInformation implements Serializable {
 
-    @SerializedName("owner_name")
+
+    @SerializedName("ownerName")
     private String ownerName;
 
-    @SerializedName("owner_type")
+    @SerializedName("ownerType")
     private String ownerType;
 
-    @SerializedName("date_of_installation")
+    @SerializedName("dateOfInstallation")
     private String dateOfInstallation;
 
-    @SerializedName("is_approval_taken")
+    @SerializedName("isApprovalTaken")
     private String isApprovalTaken;
 
-    @SerializedName("approval_authority")
+    @SerializedName("approvalAuthority")
     private String approvalAuthority;
 
-    @SerializedName("last_approval_date")
+    @SerializedName("lastApprovalDate")
     private String lastApprovalDate;
 
-    @SerializedName("no_of_user")
+    @SerializedName("noOfUser")
     private String noOfUser;
 
-    @SerializedName("purpose_of_usage")
+    @SerializedName("purposeOfUsage")
     private List<String> purposeOfUsage = new ArrayList<String>();
 
-    @SerializedName("amount_of_water_use")
+    @SerializedName("amountOfWaterUse")
     private String amountOfWaterUse;
 
-    @SerializedName("tubewell_type")
+    @SerializedName("tubewellType")
     private String tubewellType;
 
-    @SerializedName("mode_of_abstraction")
+    @SerializedName("modeOfAbstraction")
     private String modeOfAbstraction;
 
-    @SerializedName("length_of_pipe_used")
+    @SerializedName("lengthOfPipeUsed")
     private String lengthOfPipeUsed;
 
     @SerializedName("latitude")
@@ -51,11 +52,9 @@ public class TubewellInformation {
     private String longitude;
 
     public TubewellInformation() {
-        this.purposeOfUsage = new ArrayList<String>();
     }
 
-    public TubewellInformation(String ownerName, String ownerType, String dateOfInstallation, String isApprovalTaken, String approvalAuthority, String lastApprovalDate, String noOfUser, List<String> purposeOfUsage, String amountOfWaterUse,
-                               String tubewellType, String modeOfAbstraction, String lengthOfPipeUsed, String latitude, String longitude) {
+    public TubewellInformation(String ownerName, String ownerType, String dateOfInstallation, String isApprovalTaken, String approvalAuthority, String lastApprovalDate, String noOfUser, List<String> purposeOfUsage, String amountOfWaterUse, String tubewellType, String modeOfAbstraction, String lengthOfPipeUsed, String latitude, String longitude) {
         this.ownerName = ownerName;
         this.ownerType = ownerType;
         this.dateOfInstallation = dateOfInstallation;
