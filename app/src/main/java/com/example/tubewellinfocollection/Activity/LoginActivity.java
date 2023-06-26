@@ -56,9 +56,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btnLogin:
                 try {
+                    Log.d(TAG, "onClick: " + "button is clicked");
                     LoginInformation loginInformation = new LoginInformation();
                     loginInformation.setUserEmail(String.valueOf(etUserEmail.getText()));
                     loginInformation.setPassword(String.valueOf(etPassword.getText()));
+                    Log.d(TAG, "onClick: " + loginInformation.getUserEmail() + " " + loginInformation.getPassword());
+
                     apiService.login(loginInformation).enqueue(new Callback<LoginResponse>() {
                         @Override
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
