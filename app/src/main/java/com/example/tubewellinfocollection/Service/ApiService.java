@@ -13,14 +13,14 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @POST("/login")
+    @POST("login")
     Call<LoginResponse> login(@Body LoginInformation loginInformation);
 
-    @POST("/registration")
+    @POST("registration")
     Call<UserRegistrationResponse> registration(@Body UserRegistrationInformation userRegistrationInformation);
 
 
-    @POST("/tubewell_information")
+    @POST("tubewell_information")
     Call<TubewellInformationSubmissionResponse> submitTubewellInformation(@Body TubewellInformation tubewellInformation);
 
 }

@@ -2,7 +2,6 @@ package com.example.tubewellinfocollection.Activity;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -18,9 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -28,7 +26,6 @@ import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
 import com.example.tubewellinfocollection.BengaliDatePickerDialog;
-import com.example.tubewellinfocollection.POJO.LoginResponse;
 import com.example.tubewellinfocollection.POJO.TubewellInformation;
 import com.example.tubewellinfocollection.POJO.TubewellInformationSubmissionResponse;
 import com.example.tubewellinfocollection.R;
@@ -36,6 +33,10 @@ import com.example.tubewellinfocollection.Service.ApiService;
 import com.example.tubewellinfocollection.Service.ApiUtils;
 import com.example.tubewellinfocollection.util.Constant;
 import com.example.tubewellinfocollection.util.ConvertToBengali;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -54,6 +55,8 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
 
     public static String TAG = "TubewellInformationCollectionActivity";
     public static int REQUEST_CODE = 1;
+
+    private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationManager locationManager;
     private LocationListener locationListener;
     private TextInputLayout etOwnerName, etApprovalAuthorityName, etNoOfUser, etWaterUsage, etDepthOfPipe;
@@ -105,34 +108,35 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
 
     private void init() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        }
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                String locationToast = "Latitude:: " + location.getLatitude() + "Longitude::" + location.getLongitude();
-                Log.d("debug", "onLocationChanged: " + locationToast);
-                Toast.makeText(getApplicationContext(), locationToast, Toast.LENGTH_LONG).show();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//        }
+//        locationListener = new LocationListener() {
+//            @Override
+//            public void onLocationChanged(Location location) {
+//                String locationToast = "Latitude:: " + location.getLatitude() + "Longitude::" + location.getLongitude();
+//                Log.d("debug", "onLocationChanged: " + locationToast);
+//                Toast.makeText(getApplicationContext(), locationToast, Toast.LENGTH_LONG).show();
+//
+//                Latitude = String.valueOf(location.getLatitude());
+//                Longitude = String.valueOf(location.getLongitude());
+//                locationManager.removeUpdates(locationListener);
+//            }
+//
+//            @Override
+//            public void onStatusChanged(String provider, int status, Bundle extras) {
+//            }
+//
+//            @Override
+//            public void onProviderEnabled(String provider) {
+//            }
+//
+//            @Override
+//            public void onProviderDisabled(String provider) {
+//            }
+//        };
 
-                Latitude = String.valueOf(location.getLatitude());
-                Longitude = String.valueOf(location.getLongitude());
-                locationManager.removeUpdates(locationListener);
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-            }
-        };
-
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         apiService = ApiUtils.getAPIService();
 
         etOwnerName = findViewById(R.id.etOwnerName);
@@ -329,21 +333,8 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
             } else if (view.getId() == btnLastDateOfClearanceDatePicker.getId()) {
                 showDatePickerDialog(view);
             } else if (view.getId() == btnSubmit.getId()) {
+                getCurrentLocation();
 
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                Log.d(TAG, "onClick: " + "button is clicked");
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
-                sendTubewellInformation();
 
             }
         } catch (Exception e) {
@@ -416,9 +407,9 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
         }
 
         tubewellInformation.setLengthOfPipeUsed(etDepthOfPipe.getEditText().getText().toString());
-
-        tubewellInformation.setLatitude(Latitude);
         tubewellInformation.setLongitude(Longitude);
+        tubewellInformation.setLatitude(Latitude);
+
         apiService.submitTubewellInformation(tubewellInformation).enqueue(new Callback<TubewellInformationSubmissionResponse>() {
             @Override
             public void onResponse(Call<TubewellInformationSubmissionResponse> call, Response<TubewellInformationSubmissionResponse> response) {
@@ -435,12 +426,47 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
 
             @Override
             public void onFailure(Call<TubewellInformationSubmissionResponse> call, Throwable t) {
-
+                Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
 
     }
 
+    private void getCurrentLocation() {
+        final Location[] lastKnownLocation = new Location[1];
+        List<String> locationInfo = new ArrayList<String>(2);
+        try {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return ;
+            }
+            Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
+            locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                @Override
+                public void onComplete(@NonNull Task<Location> task) {
+                    if (task.isSuccessful()) {
+                        // Set the map's camera position to the current location of the device.
+                        lastKnownLocation[0] = task.getResult();
+                        if (lastKnownLocation[0] != null) {
+                            Log.d(TAG, "onComplete: " + lastKnownLocation[0].getLongitude());
+                            Latitude = String.valueOf(lastKnownLocation[0].getLatitude());
+                            Longitude = String.valueOf(lastKnownLocation[0].getLongitude());
+                            sendTubewellInformation();
+
+                        }
+                    } else {
+                        Log.d(TAG, "Current location is null. Using defaults.");
+                        Log.e(TAG, "Exception: %s", task.getException());
+                    }
+                }
+            });
+            return;
+        } catch (SecurityException e) {
+            Log.e("Exception: %s", e.getMessage(), e);
+            return;
+        }
+
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {

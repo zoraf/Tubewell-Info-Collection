@@ -58,16 +58,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 try {
                     Log.d(TAG, "onClick: " + "button is clicked");
                     LoginInformation loginInformation = new LoginInformation();
-                    loginInformation.setUserEmail(String.valueOf(etUserEmail.getText()));
+                    loginInformation.setEmail(String.valueOf(etUserEmail.getText()));
                     loginInformation.setPassword(String.valueOf(etPassword.getText()));
-                    Log.d(TAG, "onClick: " + loginInformation.getUserEmail() + " " + loginInformation.getPassword());
+                    Log.d(TAG, "onClick: " + loginInformation.getEmail() + " " + loginInformation.getPassword());
 
                     apiService.login(loginInformation).enqueue(new Callback<LoginResponse>() {
+
                         @Override
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                            Log.d(TAG, "onResponse: " + "login" + response.code());
                             if (response.code() == 200) {
                                 LoginResponse loginResponse = response.body();
-                                Log.d(TAG, "onResponse: " + loginResponse.getResponse());
+                                Log.d(TAG, "onResponse: " + loginResponse.getResponseCode());
                                 if (loginResponse.getResponseCode() == Constant.USER_NOT_FOUND) {
                                     Toast.makeText(getApplicationContext(), loginResponse.getResponse(), Toast.LENGTH_LONG).show();
                                     intent[0] = new Intent(LoginActivity.this, RegistrationActivity.class);
@@ -78,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Toast.makeText(getApplicationContext(), loginResponse.getResponse(), Toast.LENGTH_LONG).show();
                                 } else {
                                     intent[0] = new Intent(LoginActivity.this, TubewellInformationCollectionActivity.class);
-                                    intent[0].putExtra("userName", loginInformation.getUserEmail());
+                                    intent[0].putExtra("userName", loginInformation.getEmail());
                                     startActivity(intent[0]);
                                 }
                             }
@@ -86,6 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         @Override
                         public void onFailure(Call<LoginResponse> call, Throwable t) {
+                            Log.d(TAG, "onFailure: " + t.getMessage());
                             Toast.makeText(getApplicationContext(), R.string.msg_login_failed, Toast.LENGTH_LONG).show();
                         }
                     });

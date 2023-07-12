@@ -64,6 +64,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onResponse(Call<UserRegistrationResponse> call, Response<UserRegistrationResponse> response) {
                             if (response.code() == 200) {
+                                Log.d(TAG, "onResponse: " + "success");
                                 UserRegistrationResponse userRegistrationResponse = response.body();
                                 if ((userRegistrationResponse.getResponseCode() == Constant.REGISTRATION_DONE_PREVIOUSLY) ||
                                         (userRegistrationResponse.getResponseCode() == Constant.REGISTRATION_DONE_SUCCESSFULLY)) {
@@ -76,6 +77,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
                         @Override
                         public void onFailure(Call<UserRegistrationResponse> call, Throwable t) {
+                            Log.d(TAG, "onFailure: " + t.getMessage());
                             Toast.makeText(getApplicationContext(), R.string.registration_failed_text, Toast.LENGTH_LONG).show();
                             Intent intent1 = getIntent();
                             finish();

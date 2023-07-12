@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class LoginInformation implements Serializable {
 
-    @SerializedName("userEmail")
-    private String userEmail;
+    @SerializedName("email")
+    private String email;
 
     @SerializedName("password")
     private String password;
@@ -16,16 +16,16 @@ public class LoginInformation implements Serializable {
     }
 
     public LoginInformation(String userEmail, String password) {
-        this.userEmail = userEmail;
+        this.email = userEmail;
         this.password = password;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
