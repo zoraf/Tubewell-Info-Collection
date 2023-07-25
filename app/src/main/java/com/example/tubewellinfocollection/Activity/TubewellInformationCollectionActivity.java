@@ -59,7 +59,7 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private TextInputLayout etOwnerName, etApprovalAuthorityName, etNoOfUser, etWaterUsage, etDepthOfPipe;
+    private TextInputLayout etOwnerName, etApprovalAuthorityName, etNoOfUser, etWaterUsage, etDepthOfPipe,etDiameterOfPipe,etHPofEngine;
     private RadioGroup rgOwnerType, rgIsApprovedType, rgTubewellType, rgAbstractionType;
     private RadioButton rbIsApprovedType1, rbIsApprovedType2;
     private LinearLayout ownerTypeCollapsibleContent, llOwnerType, llPurposeOfUse, purposeOfUseCollapsibleContent,
@@ -201,6 +201,8 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
         etNoOfUser = findViewById(R.id.etNoOfUser);
         etWaterUsage = findViewById(R.id.etWaterUsage);
         etDepthOfPipe = findViewById(R.id.etDepthOfPipe);
+        etDiameterOfPipe = findViewById(R.id.etDiameterOfPipe);
+        etHPofEngine = findViewById(R.id.etHPofEngine);
 
         cbPurposeOfUse1 = findViewById(R.id.cbPurposeOfUse1);
         cbPurposeOfUse2 = findViewById(R.id.cbPurposeOfUse2);
@@ -407,6 +409,9 @@ public class TubewellInformationCollectionActivity extends AppCompatActivity imp
         }
 
         tubewellInformation.setLengthOfPipeUsed(etDepthOfPipe.getEditText().getText().toString());
+        tubewellInformation.setDiameterOfPipeUsed(etDiameterOfPipe.getEditText().getText().toString());
+        tubewellInformation.setHPofEngine(etHPofEngine.getEditText().getText().toString());
+
         tubewellInformation.setLongitude(Longitude);
         tubewellInformation.setLatitude(Latitude);
 

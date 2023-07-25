@@ -45,6 +45,12 @@ public class TubewellInformation implements Serializable {
     @SerializedName("lengthOfPipeUsed")
     private String lengthOfPipeUsed;
 
+    @SerializedName("diameterOfPipeUsed")
+    private String diameterOfPipeUsed;
+
+    @SerializedName("HPofEngine")
+    private String HPofEngine;
+
     @SerializedName("latitude")
     private String latitude;
 
@@ -54,7 +60,8 @@ public class TubewellInformation implements Serializable {
     public TubewellInformation() {
     }
 
-    public TubewellInformation(String ownerName, String ownerType, String dateOfInstallation, String isApprovalTaken, String approvalAuthority, String lastApprovalDate, String noOfUser, List<String> purposeOfUsage, String amountOfWaterUse, String tubewellType, String modeOfAbstraction, String lengthOfPipeUsed, String latitude, String longitude) {
+    public TubewellInformation(String ownerName, String ownerType, String dateOfInstallation, String isApprovalTaken, String approvalAuthority, String lastApprovalDate, String noOfUser, List<String> purposeOfUsage, String amountOfWaterUse, String tubewellType, String modeOfAbstraction,
+                               String lengthOfPipeUsed, String latitude, String longitude, String diameterOfPipeUsed, String HPofEngine) {
         this.ownerName = ownerName;
         this.ownerType = ownerType;
         this.dateOfInstallation = dateOfInstallation;
@@ -69,6 +76,8 @@ public class TubewellInformation implements Serializable {
         this.lengthOfPipeUsed = lengthOfPipeUsed;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.diameterOfPipeUsed = diameterOfPipeUsed;
+        this.HPofEngine = HPofEngine;
     }
 
     public String getOwnerName() {
@@ -181,5 +190,21 @@ public class TubewellInformation implements Serializable {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getDiameterOfPipeUsed() {
+        return diameterOfPipeUsed;
+    }
+
+    public void setDiameterOfPipeUsed(String diameterOfPipeUsed) {
+        this.diameterOfPipeUsed = diameterOfPipeUsed;
+    }
+
+    public String getHPofEngine() {
+        return HPofEngine;
+    }
+
+    public void setHPofEngine(String HPofEngine) {
+        this.HPofEngine = HPofEngine;
     }
 }
